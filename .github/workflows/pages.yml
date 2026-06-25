@@ -1,0 +1,6 @@
+      - name: Build site (HTML + PDF)
+        run: |
+          make html
+          make pdf
+          cp dist/llm-handbook.pdf site/llm-handbook.pdf
+
