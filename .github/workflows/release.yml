@@ -20,20 +20,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v27
-        with:
-          nix_path: "nix"
+        uses: cachix/install-nix-action@v31
 
       - name: Enable devenv cache
-        uses: cachix/cachix-action@v16
+        uses: cachix/cachix-action@v17
         with:
           name: devenv
 
       - name: Install devenv.sh
-        shell: bash
         run: |
           nix profile add nixpkgs#devenv
 
@@ -42,6 +39,6 @@ jobs:
           make pdf
 
       - name: Upload release asset
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: dist/llm-handbook.pdf
