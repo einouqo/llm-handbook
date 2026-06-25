@@ -35,6 +35,7 @@ jobs:
           nix profile add nixpkgs#devenv
 
       - name: Build PDF
+        shell: devenv shell bash -- -e {0}
         run: |
           make pdf
 

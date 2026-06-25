@@ -36,6 +36,7 @@ jobs:
           nix profile add nixpkgs#devenv
 
       - name: Build site (HTML + PDF)
+        shell: devenv shell bash -- -e {0}
         run: |
           make html
           make pdf
